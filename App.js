@@ -1,38 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
 import { TouchableOpacity,ImageBackground, SafeAreaView, StyleSheet, Text, View, Alert } from 'react-native';
+import MainScreen from './sources/screens/Mainscreen';
+import Registeration from './sources/screens/Registeration';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const image = require("./sources/assets/Background.jpeg")
+//const image = require("./sources/assets/Background.jpeg")
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <ImageBackground source={image} style={styles.imageBackgroundContainer}>
-      <SafeAreaView>
-        <View style={{alignItems:'center', marginTop:130}}>
-          <Text style={[styles.textStyle, {fontSize:60} ]}>GETOFFER</Text>
-        </View>
-        <View style={{alignItems:'center', marginTop:20}}>
-          <Text style={[styles.textStyle, {fontSize:50} ]}>WELCOME</Text>
-        </View>
-        <View style={{alignItems:'center', marginTop:10}}>
-          <Text style={[styles.textStyle, {fontSize:20} ]}>NICE TO SEE YOU</Text>
-        </View>
-        
-        <TouchableOpacity style={[styles.touchableStyle,{marginTop:50}]} onPress={()=>Alert.alert("Login alert")}>
-          <Text style={{fontSize:20, color:'#D3D3D3'}}>Login</Text>
-        </TouchableOpacity>
+    <NavigationContainer>
+      <Stack.Navigator 
+      initialRouteName="MainScreen" 
+        //screenOptions={{headerShown:false}}      
+      >
+        <Stack.Screen name='Main'
+        component={MainScreen}
+        options={{
+          headerStyle: {backgroundColor: '#003D80'},
+          headerTitleStyle: {color: 'white', fontWeight: 'bold'},
+          headerTitleAlign: 'left',
+          headerShown:false
+        }}/>
+        <Stack.Screen name='Registration'
+        component={Registeration}
+        options={{
+          headerStyle: {backgroundColor: '#003D80'},
+          headerTitleStyle: {color: 'white', fontWeight: 'bold'},
+          headerTitleAlign: 'left',
+          headerShown:false
+        }}/>
 
-        <TouchableOpacity style={styles.touchableStyle} onPress={()=>Alert.alert("Registeration alert")}>
-          <Text style={{fontSize:20, color:'#D3D3D3'}}>Registeration</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.touchableStyle} onPress={()=>Alert.alert("Guest alert")}>
-          <Text style={{fontSize:20, color:'#D3D3D3'}}>Use as Guest</Text>
-        </TouchableOpacity>
-        
-
-      </SafeAreaView>
-
-    </ImageBackground>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
