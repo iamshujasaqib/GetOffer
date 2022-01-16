@@ -7,22 +7,12 @@ export default function Registeration({navigation}) {
   return (
     <ImageBackground source={image} style={styles.imageBackgroundContainer}>
       <SafeAreaView>
-        <View style={{alignItems:'center', marginTop:130}}>
-          <Text style={[styles.textStyle, {fontSize:60} ]}>GETOFFER</Text>
-        </View>
-        <View style={{alignItems:'center', marginTop:20}}>
-          <Text style={[styles.textStyle, {fontSize:50} ]}>Registeration</Text>
-        </View>
-        <View style={{alignItems:'center', marginTop:10}}>
-          <Text style={[styles.textStyle, {fontSize:20} ]}>NICE TO SEE YOU</Text>
-        </View>
         
-        <TouchableOpacity style={[styles.touchableStyle,{marginTop:50}]} onPress={()=>Alert.alert("Login alert")}>
-          <Text style={{fontSize:20, color:'#D3D3D3'}}>Login</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.touchableStyle} onPress={()=>Alert.alert("Registeration alert")}>
-          <Text style={{fontSize:20, color:'#D3D3D3'}}>Registeration</Text>
+        <TouchableOpacity style={styles.regDpView} onPress={()=> Alert.alert('Works')}>
+        <View >
+          <Text style={{alignSelf:'center', alignItems:'center', fontSize:50}}>+</Text>
+          <Text style={{alignSelf:'center', alignItems:'center', fontSize:15}}>Upload Picture</Text>
+        </View>
         </TouchableOpacity>
 
       </SafeAreaView>
@@ -36,20 +26,14 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection:'column'
   },
-  textStyle:{
-    color:'white',
-    fontWeight:'bold',
-    color:'silver',
-    fontFamily:'Courier New'
-    },
-    touchableStyle:{
-      backgroundColor:'rgba(83, 110, 115, 0.6)',
-      alignItems:'center',
-      alignSelf:'center',
-      justifyContent:'center',
-      marginTop:20,
-      width:'65%',
-      height:'7.5%',
-      borderRadius:10,
-    }
+  regDpView:{
+    backgroundColor:'#D3D3D3',
+    height:'50%',
+    flexDirection:'column',
+    width:'50%',
+    borderRadius:100,
+    justifyContent:'center',
+    alignSelf:'center',
+    marginTop:'10%',
+  }
 });
