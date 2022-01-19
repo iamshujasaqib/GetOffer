@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { TouchableOpacity,ImageBackground, SafeAreaView, StyleSheet, Text, View, Alert } from 'react-native';
 import MainScreen from './sources/screens/Mainscreen';
-import Registeration from './sources/screens/Registeration';
+import Customer from './sources/screens/Customer';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Owner from './sources/screens/Owner';
 
 //const image = require("./sources/assets/Background.jpeg")
 const Stack = createNativeStackNavigator();
@@ -23,8 +24,16 @@ export default function App() {
           headerTitleAlign: 'left',
           headerShown:false
         }}/>
-        <Stack.Screen name='Registration'
-        component={Registeration}
+        <Stack.Screen name='Customer'
+        component={Customer}
+        options={{
+          headerStyle: {backgroundColor: '#003D80'},
+          headerTitleStyle: {color: 'white', fontWeight: 'bold'},
+          headerTitleAlign: 'left',
+          headerShown:false
+        }}/>
+        <Stack.Screen name='Owner'
+        component={Owner}
         options={{
           headerStyle: {backgroundColor: '#003D80'},
           headerTitleStyle: {color: 'white', fontWeight: 'bold'},

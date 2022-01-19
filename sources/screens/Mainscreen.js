@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { TouchableOpacity,ImageBackground, SafeAreaView, StyleSheet, Text, View, Alert } from 'react-native';
-import Registration from './Registeration'
+import Customer from './Customer'
 
 const image = require("../assets/Background.jpeg")
 
@@ -22,7 +22,7 @@ export default function MainScreen({navigation}) {
           <Text style={{fontSize:20, color:'#D3D3D3'}}>Login</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.touchableStyle} onPress={()=>navigation.navigate('Registration')}>
+        <TouchableOpacity style={styles.touchableStyle} onPress={()=>navigation.navigate('Customer')}>
           <Text style={{fontSize:20, color:'#D3D3D3'}}>Registeration</Text>
         </TouchableOpacity>
 
