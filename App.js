@@ -5,6 +5,7 @@ import Customer from './sources/screens/Customer';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Owner from './sources/screens/Owner';
+import CustRegNext from './sources/screens/CustRegNext';
 
 //const image = require("./sources/assets/Background.jpeg")
 const Stack = createNativeStackNavigator();
@@ -34,6 +35,14 @@ export default function App() {
         }}/>
         <Stack.Screen name='Owner'
         component={Owner}
+        options={{
+          headerStyle: {backgroundColor: '#003D80'},
+          headerTitleStyle: {color: 'white', fontWeight: 'bold'},
+          headerTitleAlign: 'left',
+          headerShown:false
+        }}/>
+        <Stack.Screen name='CustRegNext'
+        component={CustRegNext}
         options={{
           headerStyle: {backgroundColor: '#003D80'},
           headerTitleStyle: {color: 'white', fontWeight: 'bold'},

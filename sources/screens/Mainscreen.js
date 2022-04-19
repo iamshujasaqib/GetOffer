@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { TouchableOpacity,ImageBackground, SafeAreaView, StyleSheet, Text, View, Alert } from 'react-native';
 import Customer from './Customer'
+import Colors from '../components/colors';
 
 const image = require("../assets/Background.jpeg")
 
@@ -8,12 +9,15 @@ export default function MainScreen({navigation}) {
   return (
     <ImageBackground source={image} style={styles.imageBackgroundContainer}>
       <SafeAreaView>
+
         <View style={{alignItems:'center', marginTop:130}}>
           <Text style={[styles.textStyle, {fontSize:60} ]}>GETOFFER</Text>
         </View>
+
         <View style={{alignItems:'center', marginTop:20}}>
           <Text style={[styles.textStyle, {fontSize:50} ]}>WELCOME</Text>
         </View>
+        
         <View style={{alignItems:'center', marginTop:10}}>
           <Text style={[styles.textStyle, {fontSize:20} ]}>NICE TO SEE YOU</Text>
         </View>

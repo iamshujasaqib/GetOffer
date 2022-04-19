@@ -1,21 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TouchableOpacity,ImageBackground, SafeAreaView, StyleSheet, Text, View, Alert, KeyboardAvoidingView, Button } from 'react-native';
-import { ScrollView, TextInput } from 'react-native-gesture-handler';
+import { ScrollView, TextInput } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Owner from './Owner';
-
-
+import CustRegNext from './CustRegNext';
+import { getAdminById } from '../api/Admin';
 const image = require("../assets/Background.jpeg")
 const Tab = createMaterialTopTabNavigator();
-
 
 export default function Customer({navigation}) {
   const [email,setEmail]=useState('');
   const [username,setUsername]=useState('');
   const [password,setPassword]=useState('');
   const [confirm,setConfirm]=useState('');
+  const [data,setData]=useState();
 
+  async function getDataFromApi(){
+    const res = await getAdminById('1')
+    setData(res)
+  }
+  // useEffect has the top priority. It runs before loading the screen content. the [] in the function's end is to tell the functions that it only needs to run once
+  useEffect(()=> {
+    getDataFromApi()
+  },[])
 
   return (
     <ImageBackground source={image} style={styles.imageBackgroundContainer}>
@@ -40,7 +48,7 @@ export default function Customer({navigation}) {
             justifyContent:'center',
              marginBottom:25,
             alignItems:'center'}}
-              onPress={()=>Alert.alert("Works")}>
+              onPress={()=>navigation.navigate(CustRegNext)}>
         <Text style={{fontSize:20, color:'#D3D3D3'}}>Register</Text>
         </TouchableOpacity>
 

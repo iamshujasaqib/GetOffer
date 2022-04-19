@@ -45,11 +45,10 @@ export default function Owner({navigation}) {
             marginTop:10, 
             justifyContent:'center',
              marginBottom:10,
-            alignItems:'center'}}
+              alignItems:'center'}}
               onPress={()=>Alert.alert("Works")}>
         <Text style={{fontSize:20, color:'#D3D3D3'}}>Register</Text>
         </TouchableOpacity>
-
 
         {/*Agreeing to Terms and Conditions line*/}
         <View style={{flexDirection:'row'}}>
